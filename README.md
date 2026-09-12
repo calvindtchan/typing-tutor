@@ -34,10 +34,16 @@ npx serve .
 ## Deploy to the web (GitHub Pages)
 
 This repo includes a workflow (`.github/workflows/pages.yml`) that deploys
-the site with GitHub Pages on every push to `main`. The workflow enables
-Pages automatically on its first run (`enablement: true`), so no manual
-setup is needed — after a push to `main`, the site is live at
-`https://<your-username>.github.io/typing-tutor/`.
+the site with GitHub Pages on every push to `main`.
+
+One-time setup (required — the workflow token is not allowed to create the
+Pages site itself, so this must be done once by a repo admin):
+
+1. In the GitHub repo, go to **Settings → Pages**.
+2. Under **Build and deployment → Source**, choose **GitHub Actions**.
+3. Re-run the `Deploy to GitHub Pages` workflow (or push to `main`).
+   The site will be live at
+   `https://<your-username>.github.io/typing-tutor/`.
 
 ## Notes
 
