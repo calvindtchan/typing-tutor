@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Typing Tutor '92</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="crt">
+  <div id="screen">
+
+    <!-- BOOT -->
+    <section id="boot" class="scene">
+      <pre id="boot-text"></pre>
+      <p class="blink center hidden" id="boot-prompt">PRESS ANY KEY TO BEGIN</p>
+    </section>
+
+    <!-- MAIN MENU -->
+    <section id="menu" class="scene hidden">
+      <div class="titlebox">
+        <div class="bigtitle">TYPING TUTOR '92</div>
+        <div class="subtitle">Master the keyboard, the classic way</div>
+      </div>
+      <div class="menubox">
+        <div class="menu-item" data-key="1"><span class="hotkey">1</span> Typing Lessons</div>
+        <div class="menu-item" data-key="2"><span class="hotkey">2</span> One-Minute Speed Test</div>
+        <div class="menu-item" data-key="3"><span class="hotkey">3</span> Letter Storm (Game)</div>
+        <div class="menu-item" data-key="4"><span class="hotkey">4</span> Progress Report</div>
+      </div>
+      <p class="center dim">Type a number to choose &nbsp;•&nbsp; ESC returns here from anywhere</p>
+      <p class="center dim" id="menu-best"></p>
+    </section>
+
+    <!-- LESSON SELECT -->
+    <section id="lessons" class="scene hidden">
+      <div class="barhead">SELECT A LESSON</div>
+      <div id="lesson-list" class="lesson-grid"></div>
+      <p class="center dim">Type a letter to choose a lesson &nbsp;•&nbsp; ESC for menu</p>
+    </section>
+
+    <!-- DRILL (lessons + speed test share this) -->
+    <section id="drill" class="scene hidden">
+      <div class="barhead" id="drill-title">LESSON</div>
+      <div class="statusline">
+        <span>WPM: <b id="st-wpm">0</b></span>
+        <span>Accuracy: <b id="st-acc">100%</b></span>
+        <span>Errors: <b id="st-err">0</b></span>
+        <span id="st-time-wrap" class="hidden">Time: <b id="st-time">60</b></span>
+        <span>Line: <b id="st-line">1/1</b></span>
+      </div>
+      <div id="drill-lines">
+        <div id="line-current" class="drill-line"></div>
+        <div id="line-next" class="drill-line dimline"></div>
+        <div id="line-next2" class="drill-line dimline"></div>
+      </div>
+      <div id="kbd"></div>
+      <p class="center dim">Type the highlighted line &nbsp;•&nbsp; ESC quits the drill</p>
+    </section>
+
+    <!-- RESULTS -->
+    <section id="results" class="scene hidden">
+      <div class="barhead">RESULTS</div>
+      <pre id="results-body" class="report"></pre>
+      <p class="center blink">PRESS ENTER TO CONTINUE</p>
+    </section>
+
+    <!-- GAME -->
+    <section id="game" class="scene hidden">
+      <div class="barhead">LETTER STORM</div>
+      <div class="statusline">
+        <span>Score: <b id="g-score">0</b></span>
+        <span>Level: <b id="g-level">1</b></span>
+        <span>Lives: <b id="g-lives">♥♥♥</b></span>
+        <span>High: <b id="g-high">0</b></span>
+      </div>
+      <canvas id="g-canvas" width="760" height="380"></canvas>
+      <p class="center dim">Type the falling letters and words before they land! &nbsp;•&nbsp; ESC for menu</p>
+    </section>
+
+    <!-- PROGRESS -->
+    <section id="progress" class="scene hidden">
+      <div class="barhead">PROGRESS REPORT</div>
+      <pre id="progress-body" class="report"></pre>
+      <p class="center dim">ESC for menu &nbsp;•&nbsp; X clears all saved progress</p>
+    </section>
+
+  </div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
